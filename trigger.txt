@@ -1,1 +1,1 @@
-jeessy/ddns-go registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/ddns-go
+jeessy/ddns-go:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/ddns-go:latest

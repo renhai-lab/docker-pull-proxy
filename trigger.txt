@@ -1,1 +1,1 @@
-whyour/qinglong:debian registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/qinglong:debian
+postgres:16.3-alpine3.20 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3-alpine3.20

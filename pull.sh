@@ -1,4 +1,6 @@
 #!/bin/bash
+# Enable debug mode
+set -x
 
 # Pull, tag, and push images for multiple architectures
 cat trigger.txt | while read -r line; do

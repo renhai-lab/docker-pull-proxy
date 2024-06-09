@@ -3,8 +3,8 @@ name: Docker
 on:
   push:
     branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
+  schedule:
+    - cron: '0 16 * * *'
 
 env:
   REGISTRY: registry.cn-hangzhou.aliyuncs.com
@@ -28,8 +28,6 @@ jobs:
     - name: Replace HUB_NAME_PLACEHOLDER
       run: sh replace_hub_name.sh
 
-    - name: Verify trigger.txt content
-      run: cat trigger.txt
 
     - name: Setup QEMU
       uses: docker/setup-qemu-action@v2

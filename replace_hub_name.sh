@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # 从环境变量中读取 HUB 名称
 HUB_NAME="${ALIYUN_HUB_NAME}"
 

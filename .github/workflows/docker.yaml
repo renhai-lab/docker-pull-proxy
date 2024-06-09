@@ -26,7 +26,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Replace HUB_NAME_PLACEHOLDER
-      run: bash replace_hub_name.sh
+      run: sh replace_hub_name.sh
 
     - name: Verify trigger.txt content
       run: cat trigger.txt
@@ -53,7 +53,7 @@ jobs:
         password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
 
     - name: Pull, tag, and push images
-      run: bash pull.sh
+      run: sh pull.sh
 
     - name: Send notification
       run: |

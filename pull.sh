@@ -1,4 +1,3 @@
-#!/bin/bash
 # Enable debug mode
 set -x
 

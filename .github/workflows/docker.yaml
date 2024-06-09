@@ -28,8 +28,8 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Replace USERNAME_PLACEHOLDER
-      run: bash replace_username.sh
+    - name: Replace HUB_NAME_PLACEHOLDER
+      run: bash replace_hub_name.sh
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
@@ -46,8 +46,8 @@ jobs:
     - name: Pull, tag, and push images
       run: |
         bash pull.sh
-        data=$(cat trigger.txt)
         if [ -n "$PUSHDEER_URL" ]; then
+          data=$(awk '{print $1}' trigger.txt | paste -sd " " -)
           curl -X POST $PUSHDEER_URL \
                -d "pushkey=$PUSHDEER_API_KEY" \
                -d "text=镜像同步成功！ $data"

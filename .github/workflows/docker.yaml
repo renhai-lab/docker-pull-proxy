@@ -42,8 +42,11 @@ jobs:
         username: ${{ secrets.ALIYUN_REGISTRY_USER }}
         password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
 
-    - name: Pull, tag, and push images
-      run: sh pull.sh
+    - name: Pull, tag, and push amd64 images
+      run: sh pull-amd64.sh
+    
+    - name: Pull, tag, and push arm64 images
+      run: sh pull-arm64.sh
 
     - name: Send notification
       run: |

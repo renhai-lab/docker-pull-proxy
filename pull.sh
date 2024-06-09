@@ -1,25 +1,19 @@
-# docker pull
-# 如果需要特定架构镜像可以手动指定  --platform linux/arm64 , linux/amd64 , linux/arm/v7 等信息
-# 查看当前镜像架构信息
-# docker image inspect homeassistant/home-assistant:2024.6  | grep Architectur
-# "Architecture": "arm64",
+#!/bin/bash
 
-# 不指定 cpu 架构
-# cat trigger.txt |awk '{print "docker pull " $1} '
-# cat trigger.txt |awk '{print "docker pull " $1} '| sh
+# Pull, tag, and push images for multiple architectures
+cat trigger.txt | while read -r line; do
+  image=$(echo $line | awk '{print $1}')
+  tag=$(echo $line | awk '{print $2}')
 
-#指定 cpu 架构
-cat trigger.txt |awk '{print "docker pull --platform linux/arm64, linux/amd64 " $1} '
-cat trigger.txt |awk '{print "docker pull --platform linux/arm64, linux/amd64 " $1} '| sh
+  # Pull for arm64 and amd64 architectures separately
+  docker pull --platform linux/arm64 $image
+  docker pull --platform linux/amd64 $image
 
-# inspect Architectur
-cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '
-cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '| sh
+  # Create a manifest list for multi-architecture support
+  docker manifest create $REGISTRY/$tag \
+    --amend $image@$(docker image inspect --format='{{index .RepoDigests 0}}' $image --platform linux/arm64) \
+    --amend $image@$(docker image inspect --format='{{index .RepoDigests 0}}' $image --platform linux/amd64)
 
-# docker tag
-cat trigger.txt |awk '{print "docker tag "$1 " " $2} '
-cat trigger.txt |awk '{print "docker tag "$1 " " $2} '| sh
-
-# docker push
-cat trigger.txt |awk '{print "docker push " $2} '
-cat trigger.txt |awk '{print "docker push " $2} '| sh
+  # Push the manifest list
+  docker manifest push $REGISTRY/$tag
+done

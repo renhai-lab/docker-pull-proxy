@@ -43,7 +43,28 @@ jobs:
         password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
 
     - name: Pull, tag, and push images
-      run: sh pull.sh
+      run: |
+        #!/bin/bash
+
+        handle_image() {
+            local image=$1
+            local target=$2
+            local arch=$3
+
+            echo "Pulling ${image} for ${arch}..."
+            docker pull --platform linux/${arch} ${image}
+
+            echo "Tagging ${image} as ${target} for ${arch}..."
+            docker tag ${image} ${target}
+
+            echo "Pushing ${target} for ${arch}..."
+            docker push ${target}
+        }
+
+        while IFS=" " read -r src_image target_image; do
+            handle_image ${src_image} ${target_image} "arm64"
+            handle_image ${src_image} ${target_image} "amd64"
+        done < trigger.txt
 
     - name: Send notification
       run: |

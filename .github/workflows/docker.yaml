@@ -56,4 +56,4 @@ jobs:
         fi
 
     - name: Send Heartcheck
-      run: curl -X GET $HEARTCHECK_URL
+      run:  curl -fsS -m 10 --retry 5 -o /dev/null $HEARTCHECK_URL

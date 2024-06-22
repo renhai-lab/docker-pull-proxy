@@ -29,4 +29,3 @@ continuumio/miniconda3:24.3.0-0 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACE
 bellamy/wallos:main registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/wallos:main
 cooderl/wewe-rss-sqlite:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/wewe-rss-sqlite:latest
 whyour/qinglong:debian registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/qinglong:debian
-ollama/ollama registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/ollama

@@ -1,0 +1,13 @@
+# arm64
+gitea/gitea:1.21.11 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/gitea:1.21.11
+postgres:16 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16
+postgres:16.3 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3
+postgres:16.3-alpine3.20 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3-alpine3.20
+python:3.11-alpine registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/python:3.11-alpine
+
+# amd64
+continuumio/miniconda3:24.3.0-0 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/miniconda3:24.3.0-0
+postgres:16 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16
+postgres:16.3 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3
+postgres:16.3-alpine3.20 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3-alpine3.20
+python:3.11-alpine registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/python:3.11-alpine

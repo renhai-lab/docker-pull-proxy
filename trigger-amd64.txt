@@ -18,8 +18,12 @@ portainer/portainer-ee:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHO
 postgres:16 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16
 postgres:16.3 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3
 postgres:16.3-alpine3.20 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3-alpine3.20
-python:3.11-alpine registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/python:3.11-alpine
-talebook/talebook:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/talebook:latest
-theasp/novnc:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/novnc:latest
-valeriansaliou/sonic:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/sonic:latest
-xhofe/alist:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/alist:latest
+postgres:16.3 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16.3
+postgres:16 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/postgres:16
+containrrr/watchtower:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/watchtower:latest
+ghcr.io/music-assistant/server:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/music-assistant-server:latest
+continuumio/miniconda3:24.3.0-0 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/miniconda3:24.3.0-0
+bellamy/wallos:main registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/wallos:main
+cooderl/wewe-rss-sqlite:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/wewe-rss-sqlite:latest
+whyour/qinglong:debian registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/qinglong:debian
+ollama/ollama registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/ollama

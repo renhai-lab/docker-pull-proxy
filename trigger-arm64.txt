@@ -1,11 +1,1 @@
-bellamy/wallos:main registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/wallos:main
-containrrr/watchtower:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/watchtower:latest
-dreamacro/clash-premium:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/clash-premium:latest
-freshrss/freshrss:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/freshrss:latest
-ghcr.io/home-assistant/home-assistant:stable registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/home-assistant:stable
-jc21/nginx-proxy-manager:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/nginx-proxy-manager:latest
-jeessy/ddns-go:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/ddns-go:latest
-listmonk/listmonk:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/listmonk:latest
-mongo-express:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/mongo-express:latest
-neosmemo/memos:stable registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/memos:stable
-whyour/qinglong:debian registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/qinglong:debian
+louislam/uptime-kuma:1 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/uptime-kuma:1

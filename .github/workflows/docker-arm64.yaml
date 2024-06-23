@@ -1,0 +1,59 @@
+name: Pull and Push Docker Images （arm64）
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/docker-arm64.yaml'
+      - 'trigger-arm64.txt'
+  schedule:
+    - cron: '0 16 * * *'
+
+env:
+  REGISTRY: registry.cn-hangzhou.aliyuncs.com
+  ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
+  ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
+  ALIYUN_HUB_NAME: "${{ secrets.ALIYUN_HUB_NAME }}"
+  HEARTCHECK_URL: "${{ secrets.HEARTCHECK_URL }}"
+  # PUSHDEER_URL: "${{ secrets.PUSHDEER_URL }}"
+  # PUSHDEER_API_KEY: "${{ secrets.PUSHDEER_API_KEY }}"
+
+jobs:
+
+  build:
+    name: Pull and Push Docker Images （arm64）
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Replace HUB_NAME_PLACEHOLDER
+      run: sh replace_hub_name.sh
+
+
+    - name: Setup QEMU
+      uses: docker/setup-qemu-action@v2
+
+
+    - name: Login to Docker registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ secrets.ALIYUN_REGISTRY_USER }}
+        password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
+
+    
+    - name: Pull, tag, and push arm64 images
+      run: sh pull-arm64.sh
+
+    # - name: Send notification
+    #   run: |
+    #     data=$(awk '{print $1}' trigger-arm64.txt | paste -sd " " -)
+    #     if [ -n "$PUSHDEER_URL" ]; then
+    #       curl -X POST $PUSHDEER_URL \
+    #            -d "pushkey=$PUSHDEER_API_KEY" \
+    #            -d "text=arm64镜像同步成功！ $data"
+    #     fi
+
+    - name: Send Heartcheck
+      run:  curl -fsS -m 10 --retry 5 -o /dev/null $HEARTCHECK_URL

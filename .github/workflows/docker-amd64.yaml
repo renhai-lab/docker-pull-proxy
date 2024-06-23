@@ -1,8 +1,11 @@
-name: Docker
+name: Pull and Push Docker Images (amd64)
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - '.github/workflows/docker-amd64.yaml'
+      - 'trigger-amd64.txt'
   schedule:
     - cron: '0 16 * * *'
 
@@ -11,7 +14,6 @@ env:
   ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
   ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
   ALIYUN_HUB_NAME: "${{ secrets.ALIYUN_HUB_NAME }}"
-  MM_NOTIFY_URL: "${{ secrets.MM_NOTIFY_URL }}"
   HEARTCHECK_URL: "${{ secrets.HEARTCHECK_URL }}"
   PUSHDEER_URL: "${{ secrets.PUSHDEER_URL }}"
   PUSHDEER_API_KEY: "${{ secrets.PUSHDEER_API_KEY }}"
@@ -19,7 +21,7 @@ env:
 jobs:
 
   build:
-    name: Pull and Push Docker Images
+    name: Pull and Push Docker Images (amd64)
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
@@ -27,7 +29,6 @@ jobs:
 
     - name: Replace HUB_NAME_PLACEHOLDER
       run: sh replace_hub_name.sh
-
 
     - name: Setup QEMU
       uses: docker/setup-qemu-action@v2
@@ -43,16 +44,14 @@ jobs:
     - name: Pull, tag, and push amd64 images
       run: sh pull-amd64.sh
     
-    - name: Pull, tag, and push arm64 images
-      run: sh pull-arm64.sh
 
     - name: Send notification
       run: |
-        data=$(awk '{print $1}' trigger.txt | paste -sd " " -)
+        data=$(awk '{print $1}' trigger-amd64.txt | paste -sd " " -)
         if [ -n "$PUSHDEER_URL" ]; then
           curl -X POST $PUSHDEER_URL \
                -d "pushkey=$PUSHDEER_API_KEY" \
-               -d "text=镜像同步成功！ $data"
+               -d "text=amd64镜像同步成功！ $data"
         fi
 
     - name: Send Heartcheck

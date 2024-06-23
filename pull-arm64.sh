@@ -5,17 +5,17 @@
 # "Architecture": "arm64",
 
 #指定 cpu 架构
-cat trigger.txt |awk '{print "docker pull --platform linux/arm64 " $1} '
-cat trigger.txt |awk '{print "docker pull --platform linux/arm64 " $1} '| sh
+cat trigger-arm64.txt |awk '{print "docker pull --platform linux/arm64 " $1} '
+cat trigger-arm64.txt |awk '{print "docker pull --platform linux/arm64 " $1} '| sh
 
 # inspect Architectur
-cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '
-cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '| sh
+cat trigger-arm64.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '
+cat trigger-arm64.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '| sh
 
 # docker tag
-cat trigger.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker tag "$1 " " arr[1] ":" tag "-arm64"}'
-cat trigger.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker tag "$1 " " arr[1] ":" tag "-arm64"}' | sh
+cat trigger-arm64.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker tag "$1 " " arr[1] ":" tag "-arm64"}'
+cat trigger-arm64.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker tag "$1 " " arr[1] ":" tag "-arm64"}' | sh
 
 # docker push
-cat trigger.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker push " arr[1] ":" tag "-arm64"}'
-cat trigger.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker push " arr[1] ":" tag "-arm64"}' | sh
+cat trigger-arm64.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker push " arr[1] ":" tag "-arm64"}'
+cat trigger-arm64.txt | awk '{split($2, arr, ":"); tag=arr[2]; print "docker push " arr[1] ":" tag "-arm64"}' | sh

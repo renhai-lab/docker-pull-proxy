@@ -9,3 +9,4 @@ listmonk/listmonk:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/
 mongo-express:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/mongo-express:latest
 neosmemo/memos:stable registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/memos:stable
 whyour/qinglong:debian registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/qinglong:debian
+louislam/uptime-kuma:1 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/uptime-kuma:1

@@ -1,3 +1,1 @@
-ghcr.io/teableio/teable:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/teable:latest
-ghcr.io/teableio/teable-db-migrate:latest registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/teable-db-migrate:latest
-redis:7.2.4 registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/redis:7.2.4
+minio/mc registry.cn-hangzhou.aliyuncs.com/HUB_NAME_PLACEHOLDER/mc
